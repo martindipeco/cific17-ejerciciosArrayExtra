@@ -242,7 +242,7 @@ public class Main {
         int[] array5 = {1,2,3,4,5};
         Random random = new Random();
         //desordeno el array recorriéndolo y cambiando aleatoriamente el índice ("Fisher-Yates shuffle")
-        for(int i=0; i < array5.length; i++)
+        for(int i=0; i < array5.length - 1; i++)
         {
             //para asegurar que cada elemento se cambia con otro que aún no fue procesado
             int j = random.nextInt(array5.length - i) + i;
