@@ -236,5 +236,48 @@ public class Main {
         for (String palabra : palabras) {
             System.out.println(palabra);
         }
+
+        //EJERCICIO EXTRA EXTRA
+        //Dado un array de extensión 5, el programa lo desordena y vuelve a ordenar de menor a mayor
+        int[] array5 = {1,2,3,4,5};
+        Random random = new Random();
+        //desordeno el array recorriéndolo y cambiando aleatoriamente el índice ("Fisher-Yates shuffle")
+        for(int i=0; i < array5.length; i++)
+        {
+            //para asegurar que cada elemento se cambia con otro que aún no fue procesado
+            int j = random.nextInt(array5.length - i) + i;
+
+            //cambio los indices
+            int temp = array5[i];
+            array5[i] = array5[j];
+            array5[j] = temp;
+        }
+        //muestro el array desordenado
+        System.out.println("Array desordenado: ");
+        for (int numero : array5)
+        {
+            System.out.println(numero);
+        }
+
+        System.out.println("Ahora lo voy a ordenar de menor a mayor");
+        for (int i = 0; i < array5.length; i++)
+        {
+            //para evitar que el if intente leer más allá del index, agrego "- 1" en límite condición
+            for(int j = 0; j < array5.length - i - 1; j++)
+            {
+                if(array5[j] > array5[j+1])
+                {
+                    System.out.println("Cambio el " + array5[j] + " por el " + array5[j+1]);
+                    int temp = array5[j+1];
+                    array5[j+1] = array5[j];
+                    array5[j] = temp;
+                }
+            }
+        }
+        System.out.println("Así quedó el array ordenado: ");
+        for (int numero : array5)
+        {
+            System.out.println(numero);
+        }
     }
 }
